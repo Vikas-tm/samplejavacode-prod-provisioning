@@ -7,8 +7,9 @@ node {
        }
 
  stage('Deploy-war-in-prod') {
-ansible-playbook -u ec2-user --key ${var.pvt_key} web-playbook.yaml -vvv
-}
+ sh 'ansible-playbook -u ec2-user --key ${var.pvt_key} web-playbook.yaml -vvv'
+     }
+ 
 
 notify('Job Completed')   
 } catch (err) {

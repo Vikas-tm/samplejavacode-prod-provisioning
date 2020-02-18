@@ -8,7 +8,7 @@ node {
 
  stage('Deploy-war-in-prod') {
  sh label: '', script: 'cp /var/lib/jenkins/workspace/addressbook-pipeline-infra/jenkins-ci.ini .'
- sh label: '', script: 'ansible-playbook -u ec2-user --key ${var.pvt_key} web-playbook.yaml -vvv'
+ sh label: '', script: "ansible-playbook -u ec2-user --key ${var.pvt_key} web-playbook.yaml -vvv"
      }
  
 

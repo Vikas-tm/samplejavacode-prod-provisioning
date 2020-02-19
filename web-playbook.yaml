@@ -24,7 +24,7 @@
     - Restart Tomcat
 
   - name: copy war file to tomcat
-    copy: src=wars/addressbook.war dest= /opt/apps/tomcat/webapps/ mode=0644
+    copy: src=wars/addressbook.war dest=/opt/apps/tomcat/webapps/ mode=0644
 
   handlers:
   - name: Restart Tomcat

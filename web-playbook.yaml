@@ -23,14 +23,8 @@
     notify:
     - Restart Tomcat
 
-  - name: Download war files from jfrog
-    maven_artifact:
-      group_id: com.edurekademo.tutorial
-      artifact_id: addressbook
-      repository_url: 'http://localhost:8081/artifactory/M1036759/'
-      username: "{{ JFROG_USER_ID }}" 
-      password: "{{ JFROG_USER_PASSWORD }}"
-      dest: /opt/apps/tomcat/webapps/ mode=0644
+  - name: copy war file to tomcat
+    copy: src=wars/addressbook.war dest= /opt/apps/tomcat/webapps/ mode=0644
 
   handlers:
   - name: Restart Tomcat
